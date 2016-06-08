@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Google mirta</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- {% load staticfiles %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> -->
+  <style>
+    h1 {
+      font-size: 20px;
+      font-family: cursive,sans-serif;
+      font-weight: normal;
+
+
+    }
+  </style>
+</head>
+<body>
+  <h1>istediyini axtar</h1>
+  <form action="{% url 'search' %}" method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="nese bir sey yaz..." name="q" value="{{ abr }}">
+    <input type="submit" value="Axtar" name='button'>
+  </form>
+  {% if links %}
+  {% for link in links %}
+    <li>{{ link|safe }}</li>
+  {% endfor %}
+  {% else %}
+  <ul>
+    <li>{{ error }}</li>
+  </ul>
+  {% endif %}
+</body>
+</html>
