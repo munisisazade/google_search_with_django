@@ -1,0 +1,5 @@
+.venv/
+db.sqlite3
+spider/__pycache__/*
+steal_url/__pycache__/*
+spider/migrations/__pycache__/*
